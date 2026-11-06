@@ -337,3 +337,12 @@ h1,h2,h3,.section-head h2,.trust-panel h2,.about-copy h2,.resource-feature h2,.a
 
 @media(max-width:1080px){.resource-list{grid-template-columns:repeat(2,1fr)}.resource-list a:nth-child(3){display:none}.business-copy{width:min(620px,calc(100% - 56px))}.contact{width:calc(100% - 56px)}}
 @media(max-width:720px){.resource-list{grid-template-columns:1fr}.resource-list a:nth-child(2),.resource-list a:nth-child(3){display:none}.resource-list a>img{height:250px}.business-copy{left:20px;right:20px;bottom:28px;top:auto;width:auto;transform:none;padding:34px 26px}.contact{width:calc(100% - 40px);display:block;padding:70px 0}.contact-aside,.contact-form{padding:36px 24px}}
+
+/* Brand typography and contrast refinements. */
+.about-stats span{font-weight:600;font-size:60px;max-width:36ch;margin-top:auto}
+.launch-strip{background:transparent;border-bottom:0}
+.resource-feature,.resource-feature .section-kicker,.resource-feature h2,.resource-feature>div>p:last-child{color:#111827!important}
+.audiences{background:#eef0f3;color:#111827}.audience-intro .section-kicker,.audience-intro h2,.audience-intro>p:last-child{color:#111827}
+.contact-aside>p:not(.section-kicker){color:#fff}
+.contact-routes{display:grid;gap:12px;margin-top:38px}.contact-routes>span{display:grid;gap:5px;padding:18px 20px;background:#102b69;color:#fff;font-size:16px;line-height:1.4}.contact-routes small{display:block;color:#b9c8ec;font-size:13px;font-weight:700}.contact-routes>span:hover{background:#17377e}
+@media(max-width:720px){.about-stats span{font-size:32px}.contact-routes{margin-top:28px}}
