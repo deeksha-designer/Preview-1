@@ -123,7 +123,7 @@ const activateTab = (tab) => {
   previewCopy.textContent = tab.dataset.copy;
   const activeIndex = tabs.indexOf(tab);
   const nextTab = tabs[(activeIndex + 1) % tabs.length];
-  if (previewLabel) previewLabel.textContent = `${String(activeIndex + 1).padStart(2, '0')} / Product family`;
+  if (previewLabel) previewLabel.textContent = 'Product family';
   if (nextPreviewImage) nextPreviewImage.src = nextTab.dataset.image;
   if (nextPreviewLabel) nextPreviewLabel.textContent = `Next  ${nextTab.dataset.name}`;
   };
@@ -208,20 +208,35 @@ if (slider) {
 
 const trustTabs = [...document.querySelectorAll('[data-trust]')];
 const trustCopy = document.querySelector('.trust-description');
+const trustTitle = document.querySelector('#trust-title');
+const trustImage = document.querySelector('.trust-photo img');
 const trustData = [
-  'AISIN Aftermarket India brings AISIN automotive experience to the local replacement market.',
-  'The supplied range covers clutch, filters, coolants, fluids, suspension and belts.',
-  'Product information and enquiry routes are organised around India’s aftermarket needs.'
+  { title: 'Global experience, local relevance', copy: 'AISIN Aftermarket India brings established automotive expertise closer to India’s replacement market.', image: 'assets/aisin-parts-family-v1.png', alt: 'AISIN aftermarket product range' },
+  { title: 'Confidence built into the range', copy: 'The supplied range covers clutch, filters, coolants, fluids, suspension and belts.', image: 'assets/air-filter-hero-v2.png', alt: 'AISIN air filter product visual' },
+  { title: 'Support shaped around India', copy: 'Product information and enquiry routes are organised around India’s aftermarket needs.', image: 'assets/banner-distribution-editorial-v1.png', alt: 'Automotive aftermarket support in India' }
 ];
 let trustIndex = 0;
 function selectTrust(index) {
   trustIndex = (index + trustTabs.length) % trustTabs.length;
   trustTabs.forEach((tab, i) => { tab.classList.toggle('is-active', i === trustIndex); tab.setAttribute('aria-selected', String(i === trustIndex)); });
-  if (trustCopy) trustCopy.textContent = trustData[trustIndex];
+  const item = trustData[trustIndex];
+  if (trustTitle) trustTitle.textContent = item.title;
+  if (trustCopy) trustCopy.textContent = item.copy;
+  if (trustImage) { trustImage.src = item.image; trustImage.alt = item.alt; }
 }
 trustTabs.forEach((tab, i) => tab.addEventListener('click', () => selectTrust(i)));
 document.querySelector('[data-trust-prev]')?.addEventListener('click', () => selectTrust(trustIndex - 1));
 document.querySelector('[data-trust-next]')?.addEventListener('click', () => selectTrust(trustIndex + 1));
+
+const newsRail = document.querySelector('[data-news-rail]');
+const scrollNews = (direction) => {
+  if (!newsRail) return;
+  const card = newsRail.querySelector('article');
+  const distance = card ? card.getBoundingClientRect().width + 24 : newsRail.clientWidth * .75;
+  newsRail.scrollBy({ left: direction * distance, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+};
+document.querySelector('[data-news-prev]')?.addEventListener('click', () => scrollNews(-1));
+document.querySelector('[data-news-next]')?.addEventListener('click', () => scrollNews(1));
 
 const statValues = [...document.querySelectorAll('[data-count]')];
 if (statValues.length) {
