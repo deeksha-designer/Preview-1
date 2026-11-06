@@ -1,0 +1,10 @@
+.taste-skill/
+source-audit/
+source-renders/
+design-plans/
+extract_sources.py
+prepare_assets.py
+render_sources.ps1
+validate_preview.py
+__pycache__/
+*.pyc
