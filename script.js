@@ -239,6 +239,19 @@ const scrollNews = (direction) => {
 document.querySelector('[data-news-prev]')?.addEventListener('click', () => scrollNews(-1));
 document.querySelector('[data-news-next]')?.addEventListener('click', () => scrollNews(1));
 
+const resourceImages = [
+  ['assets/download-coolant-v4.png', 'Technician checking automotive coolant condition'],
+  ['assets/download-fluid-v4.png', 'Technician testing automotive brake fluid'],
+  ['assets/download-clutch-v4.png', 'Specialist reviewing a clutch application catalogue']
+];
+document.querySelectorAll('.resource-list a').forEach((card, index) => {
+  if (!resourceImages[index]) return;
+  const image = card.querySelector('img');
+  if (!image) return;
+  image.src = resourceImages[index][0];
+  image.alt = resourceImages[index][1];
+});
+
 const statValues = [...document.querySelectorAll('[data-count]')];
 if (statValues.length) {
   const animateStat = (element) => {

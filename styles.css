@@ -346,3 +346,10 @@ h1,h2,h3,.section-head h2,.trust-panel h2,.about-copy h2,.resource-feature h2,.a
 .contact-aside>p:not(.section-kicker){color:#fff}
 .contact-routes{display:grid;gap:12px;margin-top:38px}.contact-routes>span{display:grid;gap:5px;padding:18px 20px;background:#102b69;color:#fff;font-size:16px;line-height:1.4}.contact-routes small{display:block;color:#b9c8ec;font-size:13px;font-weight:700}.contact-routes>span:hover{background:#17377e}
 @media(max-width:720px){.about-stats span{font-size:32px}.contact-routes{margin-top:28px}}
+
+/* Final content-legibility corrections. */
+.product-sub-links a{white-space:nowrap}
+.slide-editorial .slide-copy h1,.slide-editorial .slide-copy h2{max-width:15ch;font-size:clamp(38px,3.7vw,60px);line-height:1.02}
+.news-editorial article:last-child,.news-editorial article:last-child:hover{background:#eef0f3;color:#111827}.news-editorial article:last-child h3,.news-editorial article:last-child p,.news-editorial article:last-child .section-kicker,.news-editorial article:last-child .text-link{color:#111827}
+.contact-aside h2{max-width:9ch;white-space:normal}
+@media(max-width:720px){.slide-editorial .slide-copy h1,.slide-editorial .slide-copy h2{font-size:36px;max-width:13ch}.product-sub-links a{font-size:14px}.contact-aside h2{max-width:10ch}}
