@@ -41,12 +41,12 @@ menuToggle?.addEventListener('click', () => {
 
 const menuData = {
   about: { eyebrow: 'Company', title: 'About AISIN ASK', image: 'assets/aisin-ask-brand-lockup.jpg', alt: 'AISIN ASK brand', links: [['Who we are','#about'],['Global automotive experience','#about'],['Why choose AISIN ASK','#trust'],['News & Events','#news']] },
-  products: { eyebrow: 'Aftermarket range', title: 'Product range', image: 'assets/clutch-packaging.jpg', alt: 'AISIN ASK clutch range', links: [['Clutch','#products'],['Filters','#products'],['Coolants and fluids','#products'],['Suspension and belts','#products'],['Application lists','#support']] },
-  trust: { eyebrow: 'Why AISIN ASK', title: 'Confidence in every category', image: 'assets/field-filter-photo.jpg', alt: 'AISIN filter quality inspection', links: [['Global experience','#trust'],['Product focus','#trust'],['India focus','#trust'],['About AISIN ASK','#about']] },
-  support: { eyebrow: 'Technical support', title: 'Downloads and information', image: 'assets/coolant-leaflet.jpg', alt: 'AISIN coolant technical leaflet', links: [['Premium Coolants leaflet','#support'],['Brake & Clutch Fluid leaflet','#support'],['Clutch application list','#support'],['Filter application list','#support'],['Suspension application list','#support']] },
-  news: { eyebrow: 'Latest information', title: 'News & Events', image: 'assets/coolant-leaflet.jpg', alt: 'AISIN coolant product information', links: [['Company updates','#news'],['Product information','#news'],['Technical downloads','#support'],['Contact the team','#contact']] },
-  partner: { eyebrow: 'Business', title: 'Distribution', image: 'assets/clutch-packaging.jpg', alt: 'AISIN clutch product packaging', links: [['Become a distributor','#partner'],['Bulk requirements','#partner'],['Product range','#products'],['Business enquiry','#contact']] },
-  contact: { eyebrow: 'Get in touch', title: 'Contact AISIN ASK', image: 'assets/fluid-bottles.jpg', alt: 'AISIN brake and clutch fluid range', links: [['Product support','#contact'],['Technical enquiry','#contact'],['Distributor enquiry','#contact'],['Bulk enquiry','#contact']] }
+  products: { eyebrow: 'Aftermarket range', title: 'Product range', image: 'assets/hero-workshop-clutch-v3.png', alt: 'Technician inspecting a clutch assembly', links: [['Clutch','#products'],['Filters','#products'],['Coolants and fluids','#products'],['Suspension and belts','#products'],['Application lists','#support']] },
+  trust: { eyebrow: 'Why AISIN ASK', title: 'Confidence in every category', image: 'assets/hero-filter-v3.png', alt: 'Technician inspecting an automotive filter', links: [['Global experience','#trust'],['Product focus','#trust'],['India focus','#trust'],['About AISIN ASK','#about']] },
+  support: { eyebrow: 'Technical support', title: 'Downloads and information', image: 'assets/technical-downloads-v3.png', alt: 'Technical specialist reviewing automotive product information', links: [['Premium Coolants leaflet','#support'],['Brake & Clutch Fluid leaflet','#support'],['Clutch application list','#support'],['Filter application list','#support'],['Suspension application list','#support']] },
+  news: { eyebrow: 'Latest information', title: 'News & Events', image: 'assets/support-workshop-v3.png', alt: 'Automotive technical support in a workshop', links: [['Company updates','#news'],['Product information','#news'],['Technical downloads','#support'],['Contact the team','#contact']] },
+  partner: { eyebrow: 'Business', title: 'Distribution', image: 'assets/distribution-centre-v3.png', alt: 'Automotive parts distribution centre', links: [['Become a distributor','#partner'],['Bulk requirements','#partner'],['Product range','#products'],['Business enquiry','#contact']] },
+  contact: { eyebrow: 'Get in touch', title: 'Contact AISIN ASK', image: 'assets/support-workshop-v3.png', alt: 'Automotive support team in a workshop', links: [['Product support','#contact'],['Technical enquiry','#contact'],['Distributor enquiry','#contact'],['Bulk enquiry','#contact']] }
 };
 
 const menuSectionButtons = [...document.querySelectorAll('[data-menu-section]')];
@@ -211,22 +211,23 @@ const trustCopy = document.querySelector('.trust-description');
 const trustTitle = document.querySelector('#trust-title');
 const trustImage = document.querySelector('.trust-photo img');
 const trustData = [
-  { title: 'Global experience, local relevance', copy: 'AISIN Aftermarket India brings established automotive expertise closer to India’s replacement market.', image: 'assets/aisin-parts-family-v1.png', alt: 'AISIN aftermarket product range' },
-  { title: 'Confidence built into the range', copy: 'The supplied range covers clutch, filters, coolants, fluids, suspension and belts.', image: 'assets/air-filter-hero-v2.png', alt: 'AISIN air filter product visual' },
-  { title: 'Support shaped around India', copy: 'Product information and enquiry routes are organised around India’s aftermarket needs.', image: 'assets/banner-distribution-editorial-v1.png', alt: 'Automotive aftermarket support in India' }
+  { title: 'Global experience,<br>local relevance', copy: 'AISIN Aftermarket India brings established automotive expertise closer to India’s replacement market.', image: 'assets/hero-workshop-clutch-v3.png', alt: 'Technician inspecting an automotive clutch assembly' },
+  { title: 'Confidence built<br>into the range', copy: 'The supplied range covers clutch, filters, coolants, fluids, suspension and belts.', image: 'assets/technical-downloads-v3.png', alt: 'Technical specialist reviewing automotive products' },
+  { title: 'Support shaped<br>around India', copy: 'Product information and enquiry routes are organised around India’s aftermarket needs.', image: 'assets/support-workshop-v3.png', alt: 'Automotive aftermarket support in India' }
 ];
 let trustIndex = 0;
 function selectTrust(index) {
   trustIndex = (index + trustTabs.length) % trustTabs.length;
   trustTabs.forEach((tab, i) => { tab.classList.toggle('is-active', i === trustIndex); tab.setAttribute('aria-selected', String(i === trustIndex)); });
   const item = trustData[trustIndex];
-  if (trustTitle) trustTitle.textContent = item.title;
+  if (trustTitle) trustTitle.innerHTML = item.title;
   if (trustCopy) trustCopy.textContent = item.copy;
   if (trustImage) { trustImage.src = item.image; trustImage.alt = item.alt; }
 }
 trustTabs.forEach((tab, i) => tab.addEventListener('click', () => selectTrust(i)));
 document.querySelector('[data-trust-prev]')?.addEventListener('click', () => selectTrust(trustIndex - 1));
 document.querySelector('[data-trust-next]')?.addEventListener('click', () => selectTrust(trustIndex + 1));
+selectTrust(0);
 
 const newsRail = document.querySelector('[data-news-rail]');
 const scrollNews = (direction) => {
