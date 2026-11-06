@@ -20,9 +20,6 @@ Then open `http://127.0.0.1:4173/`.
 - `assets/` — optimized imagery derived from the supplied client files
 - `assets/downloads/` — client-supplied PDFs linked from the resource section
 - `SOURCE_AUDIT.md` — source findings, design rationale and approval gaps
-- `.taste-skill/inspection/` — desktop, tablet and mobile visual-QA captures
-- `.taste-skill/redesign-inspection/` — responsive visual-QA captures for the redesigned homepage
-- `design-plans/redesign-audit.md` — evidence-backed critique of the original Preview 1 composition
 
 ## Preview behaviour
 
