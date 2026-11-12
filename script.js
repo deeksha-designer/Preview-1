@@ -61,7 +61,13 @@ const renderMenuDetail = (key) => {
 menuSectionButtons.forEach((button) => {
   button.addEventListener('mouseenter', () => renderMenuDetail(button.dataset.menuSection));
   button.addEventListener('focus', () => renderMenuDetail(button.dataset.menuSection));
-  button.addEventListener('click', () => renderMenuDetail(button.dataset.menuSection));
+  button.addEventListener('click', () => {
+    const key = button.dataset.menuSection;
+    renderMenuDetail(key);
+    const destination = menuData[key]?.links?.[0]?.[1];
+    if (destination) window.location.hash = destination;
+    closeMenu();
+  });
 });
 
 navTriggers.forEach((trigger) => {
@@ -283,9 +289,10 @@ if (statValues.length) {
 /* Precision motion layer: one-shot entrances, no scroll polling. */
 const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealGroups = [
-  '.section-head', '.trust-panel', '.about-copy', '.about-stats', '.resource-feature',
-  '.resource-list', '.audience-intro', '.audience-cards', '.news-heading', '.news-empty',
-  '.business-image', '.business-copy', '.contact-aside', '.contact-form', '.footer-lead', '.footer-main'
+  '.section-head', '.product-browser', '.launch-strip', '.trust-panel', '.trust-photo',
+  '.about-copy', '.about-stats', '.resource-feature', '.resource-list', '.audience-intro',
+  '.audience-cards', '.news-heading', '.news-editorial', '.business-image', '.business-copy',
+  '.contact-aside', '.contact-form', '.footer-lead', '.footer-main'
 ];
 const revealItems = revealGroups.flatMap((selector) => [...document.querySelectorAll(selector)]);
 revealItems.forEach((element, index) => {
