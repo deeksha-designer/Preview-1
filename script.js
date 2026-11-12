@@ -307,3 +307,21 @@ if (motionReduced) {
   revealItems.forEach((element) => revealObserver.observe(element));
   requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('hero-ready')));
 }
+
+/* Editorial range photography: deliberately documentary, not catalogue CGI. */
+const rangeStoryImages = [
+  ['assets/news-range-inspection-v4.png', 'Technician inspecting an automotive air filter under a workshop lamp'],
+  ['assets/news-range-update-v4.png', 'Automotive specialists reviewing clutch, belt and filter components'],
+  ['assets/news-technical-docs-v4.png', 'Technical documentation specialist cataloguing aftermarket components'],
+  ['assets/news-coolant-service-v4.png', 'Technician checking an engine cooling system in a workshop']
+];
+
+document.querySelectorAll('.news-editorial article').forEach((card, index) => {
+  const image = card.querySelector('img');
+  const story = rangeStoryImages[index];
+  if (!image || !story) return;
+  image.src = story[0];
+  image.alt = story[1];
+  image.width = 1536;
+  image.height = 1024;
+});
