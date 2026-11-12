@@ -430,3 +430,18 @@ h1,h2,h3,.section-head h2,.trust-panel h2,.about-copy h2,.resource-feature h2,.a
 @media(max-width:720px){
   .launch-strip{width:calc(100% - 40px);display:block}.launch-strip>div{display:block;margin-bottom:20px}.launch-strip h3{font-size:30px}.launch-strip article{min-height:350px;margin-bottom:16px;padding-top:230px}.launch-strip article:before{height:205px}.resource-feature h2,.audience-intro h2{font-size:34px}.resource-feature>div>p:last-child{padding-left:18px}.resource-list{grid-template-columns:1fr}.resource-list a:nth-child(2),.resource-list a:nth-child(3){display:block}.resource-list a{min-height:0}.resource-list a>img,.resource-list a:first-child>img{height:240px}.audience-intro{display:block}.audience-intro .section-kicker{margin:0 0 12px}.audience-intro h2{margin-bottom:18px}.audience-cards{display:block;height:auto}.audience-cards a,.audience-cards a:first-child{height:360px;margin-bottom:16px}.audience-cards a:first-child>span{right:0;width:auto}.news-editorial article,.news-editorial article:first-child,.news-editorial article:last-child{flex-basis:88%}.contact{width:calc(100% - 40px);margin:70px auto}.contact-aside{padding:275px 24px 36px}.contact-aside:before,.contact-aside:after{height:235px}.contact-aside h2{font-size:36px}.contact-routes{grid-template-columns:1fr}.contact-form{padding:36px 24px}
 }
+
+/* Final AISIN brand system override - must remain last in the cascade. */
+:root{--blue:#162a75;--blue-dark:#162a75;--aptiv-blue:#162a75;--aptiv-ink:#162a75;--aptiv-red:#b72424;--brand-blue:#162a75;--brand-red:#b72424;--font-display:"AISIN Avant Garde",Arial,sans-serif;--font-body:"AISIN Myriad",Arial,sans-serif}
+html,body,button,input,select,textarea{font-family:var(--font-body)}
+h1,h2,h3,h4,h5,h6,.section-head h2,.product-copy h3,.launch-strip strong,.audience-cards strong,.resource-list strong,.contact-routes small,.button,.header-action,.nav-trigger,.nav-link,.menu-links button{font-family:var(--font-display);font-weight:600}
+.section-kicker,.slide-copy>p,.task-bar span,.launch-strip article span,.resource-list small{font-family:var(--font-body);font-weight:400;letter-spacing:0;text-transform:none}
+.button,.header-action,.product-sub-links a,.contact-form .button,.launch-strip article a{background:#b72424!important;color:#fff!important}
+.button:hover,.header-action:hover,.product-sub-links a:hover,.contact-form .button:hover,.launch-strip article a:hover{background:#941d1d!important;color:#fff!important}
+.section-kicker,.text-link,.menu-content>p,.menu-feature>p,.mega-intro p,.mega-intro>a,.product-copy>p,.resource-list a:hover strong{color:#b72424}
+.product-tabs button.is-active,.about-stats,.footer,.menu-open .site-header,.contact-aside,.audience-cards a,.business-copy{background:#162a75!important}
+.contact-routes>span{background:#223980!important}.contact-routes>span:hover{background:#2d478f!important}
+.trust-tabs button.is-active{color:#162a75;border-bottom-color:#b72424}.trust-panel{border-left-color:#b72424}
+.trust-controls button,.news-controls button{border-color:#162a75;color:#162a75}.trust-controls button:hover,.news-controls button:hover{background:#162a75;color:#fff}
+.about-stats article{background:#162a75;color:#fff}.resource-feature>div>p:last-child{border-left-color:#b72424}.resource-list a:after,.audience-cards b{color:#b72424}.contact-aside:after{background:#b72424}
+.resources,.audiences{background:#eef0f3}.footer-lead,.footer-bottom{border-color:rgba(255,255,255,.22)}
